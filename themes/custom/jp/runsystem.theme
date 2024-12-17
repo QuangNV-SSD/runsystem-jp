@@ -1,0 +1,385 @@
+<?php
+/**
+ * Theme overrides and preprocess functions.
+ */
+
+use Drupal\file\Entity\File;
+/**
+ * Sanitise input urls.
+ */
+function santise_val_url($url) {
+	if ($url != '') {
+		// Sanitise (remove all illegal characters) from url.
+		$url = filter_var($url, FILTER_SANITIZE_URL);
+		// Validate url.
+		if (filter_var($url, FILTER_VALIDATE_URL) === false) {
+      $url = '#';
+		}
+	}
+
+  return $url;
+}
+
+function runsystem_theme_suggestions_page_alter(array &$suggestions, $variables)
+{
+  if (!empty($variables['page']['content']['runsystem_about_who_we_are']) || !empty($variables['page']['content']['runsystem_who_we_are'])) {
+    $suggestions[] = 'page__who_we_are';
+  }
+
+  if (!empty($variables['page']['content']['runsystem_about_why_choose_us']) || !empty($variables['page']['content']['runsystem_why_choose_us'])) {
+    $suggestions[] = 'page__why_choose_us';
+  }
+}
+
+//function runsystem_theme_suggestions_block_alter(array &$suggestions, $variables)
+//{
+//  kint($suggestions);
+//}
+
+function runsystem_preprocess_links__language_block(&$variables)
+{
+  $variables['base_path'] = base_path();
+  $variables['language'] = \Drupal::languageManager()->getCurrentLanguage();
+}
+
+//function runsystem_theme_suggestions_node_alter(array &$suggestions, $variables)
+//{
+//  kint($variables);
+//  kint($suggestions);
+//}
+
+function runsystem_preprocess_html(&$variables)
+{
+  $variables['base_path'] = base_path();
+  // Layout
+  $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+  $variables['js_code'] = theme_get_setting('js_code', 'runsystem');
+}
+
+/**
+ * page preprocess
+ */
+function runsystem_preprocess_page(array &$variables)
+{
+	$variables['all_icons_show'] = theme_get_setting('all_icons_show', 'runsystem');
+	$variables['facebook_url'] = santise_val_url(theme_get_setting('facebook_url', 'runsystem'));
+	$variables['linkedin_url'] = santise_val_url(theme_get_setting('linkedin_url', 'runsystem'));
+	$variables['tiktok_url'] = santise_val_url(theme_get_setting('tiktok_url', 'runsystem'));
+  $variables['page_leadership'] = stripos($_SERVER["REQUEST_URI"], 'leadership') !== false || stripos($_SERVER["REQUEST_URI"], 'lanh-dao') !== false;
+}
+
+function runsystem_preprocess_block(&$variables)
+{
+  $variables['base_path'] = base_path();
+  $variables['language'] = \Drupal::languageManager()->getCurrentLanguage();
+  $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+}
+
+function runsystem_preprocess_block__runsystem_intro_block(&$variables)
+{
+  $variables['project_number'] = theme_get_setting('projects', 'runsystem');
+  $variables['product_number'] = theme_get_setting('products', 'runsystem');
+  $variables['develop_number'] = theme_get_setting('developers', 'runsystem');
+  $variables['partner_number'] = theme_get_setting('partners', 'runsystem');
+}
+
+function runsystem_preprocess_block__runsystem_about_who_we_are(&$variables)
+{
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['vid' => 'branch']);
+  $curr_langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  $data_branch = [];
+  foreach ($terms as $term) {
+    $taxonomy_term_trans = \Drupal::service('entity.repository')->getTranslationFromContext($term, $curr_langcode);
+
+    $data_branch[] = [
+      'name' => $taxonomy_term_trans->getName(),
+      'address' => $taxonomy_term_trans->getDescription(),
+      'email' => $taxonomy_term_trans->get('field_email')->value,
+      'phone' => $taxonomy_term_trans->get('field_phone')->value,
+      'url_image' => $term->get('field_logo')->isEmpty() ? '' : \Drupal::service('file_url_generator')->generateAbsoluteString($term->get('field_logo')->entity->getFileUri()),
+    ];
+  }
+
+  $variables['data_branch'] = $data_branch;
+}
+
+function runsystem_preprocess_block__runsystem_about_why_choose_us(&$variables)
+{
+  $variables['project_number'] = theme_get_setting('projects', 'runsystem');
+  $variables['product_number'] = theme_get_setting('products', 'runsystem');
+  $variables['develop_number'] = theme_get_setting('developers', 'runsystem');
+  $variables['partner_number'] = theme_get_setting('partners', 'runsystem');
+}
+
+function runsystem_preprocess_block__runsystem_services_digital_outsourcing(&$variables)
+{
+  $variables['outsourcing_project'] = theme_get_setting('outsourcing_project', 'runsystem') ?? 150;
+  $variables['outsourcing_customer'] = theme_get_setting('outsourcing_customer', 'runsystem') ?? 100;
+}
+
+function runsystem_preprocess_block__runsystem_services_enterprise_solutions(&$variables)
+{
+  $variables['enterprise_project'] = theme_get_setting('enterprise_project', 'runsystem') ?? 150;
+  $variables['enterprise_customer'] = theme_get_setting('enterprise_customer', 'runsystem') ?? 100;
+}
+
+function runsystem_preprocess_block__runsystem_views__news_block(&$variables)
+{
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['vid' => 'post_category']);
+  $curr_langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  $news_category = [];
+  foreach ($terms as $term) {
+    $taxonomy_term_trans = \Drupal::service('entity.repository')->getTranslationFromContext($term, $curr_langcode);
+
+    $news_category[] = [
+      'name' => $taxonomy_term_trans->getName(),
+      'langcode' => $curr_langcode,
+      'url' => t('/news/'). $term->id()
+    ];
+  }
+
+  $variables['news_category'] = $news_category;
+}
+
+function get_data_nodes($content_type = 'success_story')
+{
+  $curr_langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  $query = \Drupal::database()
+    ->select('node')
+    ->fields('node', ['nid'])
+    ->condition('node.type', $content_type)
+    ->condition('nb.langcode', $curr_langcode)
+    ->orderBy('node.nid', 'DESC')
+    ->range(0, 3);
+  $query->join('node__body', 'nb', '[nb].[entity_id] = [node].[nid]');
+  $nodeIds = $query->execute()->fetchCol(); // returns an indexed array
+
+  $nodes = \Drupal\node\Entity\Node::loadMultiple($nodeIds);
+
+  $data_nodes = [];
+  foreach ($nodes as $node) {
+    $node_trans = \Drupal::service('entity.repository')->getTranslationFromContext($node, $curr_langcode);
+
+    $data_nodes[] = [
+      'url' => $node_trans->toUrl()->setAbsolute()->toString(),
+      'title' => $node_trans->getTitle(),
+      'summary' => $node_trans->body->summary,
+      'url_image' => $node_trans->get('field_image')->isEmpty() ? '' : \Drupal::service('file_url_generator')->generateAbsoluteString($node_trans->get('field_image')->entity->getFileUri()),
+    ];
+  }
+
+  return $data_nodes;
+}
+
+function runsystem_preprocess_block__runsystem_industries_bfsi(&$variables)
+{
+  $variables['data_nodes'] = get_data_nodes();
+}
+
+function runsystem_preprocess_block__runsystem_industries_digital_marketing(&$variables)
+{
+  $variables['data_nodes'] = get_data_nodes();
+}
+
+function runsystem_preprocess_block__runsystem_industries_manufacturing(&$variables)
+{
+  $variables['data_nodes'] = get_data_nodes();
+}
+
+/* *
+ * Node preprocess.
+ */
+function runsystem_preprocess_node(&$variables)
+{
+  $variables['base_path'] = base_path();
+  $variables['language'] = \Drupal::languageManager()->getCurrentLanguage();
+
+  if (!empty($variables['elements']['flippy_pager'])) {
+    if (!empty($variables['elements']['flippy_pager']['#list']['prev'])) {
+      $variables['prev'] = [
+        'nid' => $variables['elements']['flippy_pager']['#list']['prev']['nid'],
+        'title' => $variables['elements']['flippy_pager']['#list']['prev']['title'],
+        'url' => (\Drupal\node\Entity\Node::load($variables['elements']['flippy_pager']['#list']['prev']['nid']))->toUrl()->setAbsolute()->toString()
+      ];
+    }
+
+    if (!empty($variables['elements']['flippy_pager']['#list']['next'])) {
+      $variables['next'] = [
+        'nid' => $variables['elements']['flippy_pager']['#list']['next']['nid'],
+        'title' => $variables['elements']['flippy_pager']['#list']['next']['title'],
+        'url' => (\Drupal\node\Entity\Node::load($variables['elements']['flippy_pager']['#list']['next']['nid']))->toUrl()->setAbsolute()->toString()
+      ];
+    }
+  }
+
+  $variables['absolute_url'] = $variables['node']->toUrl()->setAbsolute()->toString();
+
+  if ($variables['node']->hasField('field_company_profile')) {
+    $company_profile = $variables['node']->get('field_company_profile')->getValue();
+    if (!empty($company_profile[0])) {
+      $url = \Drupal\Core\Url::fromRoute(
+        'media_entity_download.download',
+        [
+          'media' => $company_profile[0]['target_id']
+        ],
+      );
+
+      $variables['url_download'] = $url->setAbsolute()->toString();
+    }
+  }
+}
+
+/* *
+ * Add current page to breadcrumb.
+ */
+function runsystem_preprocess_breadcrumb(&$variables)
+{
+	$request = \Drupal::request();
+	$route_match = \Drupal::routeMatch();
+	$page_title = \Drupal::service('title_resolver')->getTitle($request, $route_match->getRouteObject());
+
+	if (!empty($page_title)) {
+		$variables['breadcrumb'][] = [
+			'text' => $page_title,
+		];
+		// Add cache context based on url.
+		$variables['#cache']['contexts'][] = 'url';
+	}
+}
+
+function runsystem_preprocess_page__news(&$variables)
+{
+  $variables['current_path'] = \Drupal::service('path.current')->getPath();
+  $params = explode('/', $variables['current_path']);
+  $term_id = end($params);
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['vid' => 'post_category']);
+  $curr_langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $flag_all = true;
+
+  $news_category = [];
+  foreach ($terms as $term) {
+    $active_class = $term_id == $term->id() ? 'tg_current' : '';
+    $taxonomy_term_trans = \Drupal::service('entity.repository')->getTranslationFromContext($term, $curr_langcode);
+
+    if (!empty($active_class) && $flag_all) {
+      $flag_all = false;
+    }
+
+    $news_category[] = [
+      'name' => $taxonomy_term_trans->getName(),
+      'langcode' => $curr_langcode,
+      'url' => t('/news/'). $term->id(),
+      'active_class' => $active_class
+    ];
+  }
+
+  $variables['flag_all'] = $flag_all;
+  $variables['news_category'] = $news_category;
+}
+
+function runsystem_preprocess_page__products(&$variables)
+{
+  $variables['current_path'] = \Drupal::service('path.current')->getPath();
+  $params = explode('/', $variables['current_path']);
+  $term_id = end($params);
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['vid' => 'product_category']);
+  $curr_langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $flag_all = true;
+
+  $categories = [];
+  foreach ($terms as $term) {
+    $active_class = $term_id == $term->id() ? 'tg_current' : '';
+    $taxonomy_term_trans = \Drupal::service('entity.repository')->getTranslationFromContext($term, $curr_langcode);
+
+    if (!empty($active_class) && $flag_all) {
+      $flag_all = false;
+    }
+
+    $categories[] = [
+      'name' => $taxonomy_term_trans->getName(),
+      'langcode' => $curr_langcode,
+      'url' => t('/products/'). $term->id(),
+      'active_class' => $active_class
+    ];
+  }
+
+  $variables['flag_all'] = $flag_all;
+  $variables['categories'] = $categories;
+}
+
+function runsystem_preprocess_page__success_stories(&$variables)
+{
+  $variables['experience_year'] = date('Y') - 2005;
+}
+
+function runsystem_preprocess_views_view__success_stories_page(&$variables)
+{
+  $variables['base_path'] = base_path();
+  $variables['language'] = \Drupal::languageManager()->getCurrentLanguage();
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['vid' => 'success_stories']);
+
+  $categories = [];
+  foreach ($terms as $term) {
+    $taxonomy_term_trans = \Drupal::service('entity.repository')->getTranslationFromContext($term, $variables['language']->getId());
+
+    $categories[] = [
+      'name' => $taxonomy_term_trans->getName(),
+      'langcode' => $variables['language']->getId(),
+      'url' => t('/success-stories/'). $term->id(),
+    ];
+  }
+
+  $variables['categories'] = $categories;
+}
+
+function runsystem_preprocess_page__webform__contact_us(&$variables)
+{
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['vid' => 'branch']);
+  $curr_langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  $data_branch = [];
+  foreach ($terms as $term) {
+    $taxonomy_term_trans = \Drupal::service('entity.repository')->getTranslationFromContext($term, $curr_langcode);
+
+    $data_branch[] = [
+      'name' => $taxonomy_term_trans->getName(),
+      'address' => $taxonomy_term_trans->getDescription(),
+      'email' => $taxonomy_term_trans->get('field_email')->value,
+      'phone' => $taxonomy_term_trans->get('field_phone')->value,
+      'url_image' => $term->get('field_logo')->isEmpty() ? '' : \Drupal::service('file_url_generator')->generateAbsoluteString($term->get('field_logo')->entity->getFileUri()),
+    ];
+  }
+
+  $variables['data_branch'] = $data_branch;
+  $variables['page_title'] = $variables['page']['#title'];
+}
+
+function runsystem_preprocess_page__about_company_history(&$variables)
+{
+  $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['vid' => 'company_history']);
+  $curr_langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  $histories = [];
+  foreach ($terms as $term) {
+    $taxonomy_term_trans = \Drupal::service('entity.repository')->getTranslationFromContext($term, $curr_langcode);
+
+    $histories[] = [
+      'name' => $taxonomy_term_trans->getName(),
+      'year' => $taxonomy_term_trans->get('field_year')->value,
+    ];
+  }
+
+  $variables['histories'] = $histories;
+  $variables['experience_year'] = date('Y') - 2005;
+}
+
+function runsystem_form_alter(&$form, &$form_state, $form_id) {
+  if ($form['#form_id'] == 'search_block_form') {
+    $form['keys']['#title'] = '';
+    $form['keys']['#attributes']['placeholder'] = t('Search');
+  }
+}
+

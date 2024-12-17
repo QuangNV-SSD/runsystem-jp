@@ -1,0 +1,17 @@
+# These will be loaded on every pages.
+global-styling:
+  version: VERSION
+  css:
+    theme:
+      css/style.css: {}
+      css/font-awesome.min.css: {}
+      css/animate.css: {}
+      css/swiper-bundle.min.css: {}
+      css/slick.css: {}
+  js:
+    js/swiper-bundle.min.js: {}
+    js/slick.js: {}
+    js/custom.js: {}
+
+  dependencies:
+    - core/jquery

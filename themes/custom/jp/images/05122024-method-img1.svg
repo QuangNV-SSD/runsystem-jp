@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="532" height="264" viewBox="0 0 532 264">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#80d0c7"/>
+      <stop offset="1" stop-color="#0093e9"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_3913" data-name="Group 3913" transform="translate(-376 -7384)">
+    <rect id="Rectangle_7303" data-name="Rectangle 7303" width="532" height="264" transform="translate(376 7384)" fill="#fff"/>
+    <g id="Group_3911" data-name="Group 3911" transform="translate(0 -4)">
+      <path id="Union_88" data-name="Union 88" d="M14231,18231a16,16,0,0,1,0-32h208a16,16,0,1,1,0,32Zm-64-48a16,16,0,0,1,0-32h208a16,16,0,0,1,0,32Zm-64-48a16,16,0,0,1,0-32h208a16,16,0,0,1,0,32Zm-64-48a16,16,0,0,1,0-32h208a16,16,0,0,1,0,32Zm-64-48a16,16,0,0,1,0-32h208a16,16,0,0,1,0,32Z" transform="translate(-13565 -10599)" fill="url(#linear-gradient)"/>
+      <text id="要件定義" transform="translate(513.999 7431)" fill="#fff" font-size="16" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="-32" y="0">要件定義</tspan></text>
+      <text id="設計" transform="translate(577.999 7479)" fill="#fff" font-size="16" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="-16" y="0">設計</tspan></text>
+      <text id="実装" transform="translate(641.999 7527)" fill="#fff" font-size="16" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="-16" y="0">実装</tspan></text>
+      <text id="テスト" transform="translate(705.999 7575)" fill="#fff" font-size="16" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="-24" y="0">テスト</tspan></text>
+      <text id="リリース" transform="translate(769.999 7623)" fill="#fff" font-size="16" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="-31.6" y="0">リリース</tspan></text>
+      <path id="Union_79" data-name="Union 79" d="M13959,18019h20l-10,10Zm4,0v-14a2,2,0,0,1,2-2h8a2,2,0,0,1,2,2v14Z" transform="translate(-13355.002 -10567)" fill="#003c71"/>
+      <path id="Union_80" data-name="Union 80" d="M13959,18019h20l-10,10Zm4,0v-14a2,2,0,0,1,2-2h8a2,2,0,0,1,2,2v14Z" transform="translate(-13291 -10519)" fill="#003c71"/>
+      <path id="Union_81" data-name="Union 81" d="M13959,18019h20l-10,10Zm4,0v-14a2,2,0,0,1,2-2h8a2,2,0,0,1,2,2v14Z" transform="translate(-13227 -10471)" fill="#003c71"/>
+      <path id="Union_82" data-name="Union 82" d="M13959,18019h20l-10,10Zm4,0v-14a2,2,0,0,1,2-2h8a2,2,0,0,1,2,2v14Z" transform="translate(-13163 -10423)" fill="#003c71"/>
+    </g>
+  </g>
+</svg>

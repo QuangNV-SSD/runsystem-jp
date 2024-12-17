@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="492.005" height="230.752" viewBox="0 0 492.005 230.752">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#80d0c7"/>
+      <stop offset="1" stop-color="#0093e9"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_3912" data-name="Group 3912" transform="translate(-1031.999 -7414.873)">
+    <g id="Group_3908" data-name="Group 3908">
+      <path id="Union_87" data-name="Union 87" d="M14185,18035h-222a4,4,0,0,1-4-4V18007a4,4,0,0,1,4-4h222v-4l20,20-20,20Z" transform="translate(-12927 -10393.375)" fill="#003c71"/>
+      <text id="機能A" transform="translate(1154.999 7632.377)" fill="#fff" font-size="16" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="-21.128" y="0">機能A</tspan></text>
+    </g>
+    <g id="Group_3907" data-name="Group 3907" transform="translate(-18.303 -1.752)">
+      <path id="Union_86" data-name="Union 86" d="M14035,18181.75a16,16,0,0,1-13.32-24.863,80.244,80.244,0,0,1-26.516-33.666l-6.437,2.131,1.921-16.746c-.017-.078-.031-.154-.047-.232H13975a16,16,0,0,1,0-32h15.6a79.815,79.815,0,0,1,19.8-38.467l-4.654-5.3,15.829-4.672c.035-.027.069-.053.1-.078A16,16,0,0,1,14035,18003h68a16,16,0,0,1,13.321,24.865,80.274,80.274,0,0,1,26.377,33.34l5.919-2.189-1.337,16.791c.04.189.079.379.117.57h15.6a16,16,0,1,1,0,32h-15.6a79.752,79.752,0,0,1-19.317,37.941l4.823,5.488-16.158,4.77c-.141.105-.282.209-.423.313a16,16,0,0,1-13.321,24.865Zm-1.424-31.937q.7-.062,1.424-.062h68q.721,0,1.423.063a67.729,67.729,0,0,0,30.159-41.439H14095a16,16,0,1,1,0-32h39.581a67.754,67.754,0,0,0-30.161-41.439q-.7.062-1.421.063h-68q-.719,0-1.422-.062a67.752,67.752,0,0,0-30.16,41.439H14043a16,16,0,0,1,0,32h-39.585A67.731,67.731,0,0,0,14033.574,18149.813Z" transform="translate(-12895.699 -10586.375)" fill="url(#linear-gradient)"/>
+      <text id="テスト" transform="translate(1173.3 7439.625)" fill="#fff" font-size="16" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="-24" y="0">テスト</tspan></text>
+      <text id="実装" transform="translate(1113.3 7513)" fill="#fff" font-size="16" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="-16" y="0">実装</tspan></text>
+      <text id="プラン" transform="translate(1172.631 7586.375)" fill="#fff" font-size="16" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="-24" y="0">プラン</tspan></text>
+      <text id="リリース" transform="translate(1233.3 7513)" fill="#fff" font-size="16" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="-31.6" y="0">リリース</tspan></text>
+    </g>
+    <g id="Group_3909" data-name="Group 3909" transform="translate(227.7 -1.752)">
+      <path id="Union_86-2" data-name="Union 86" d="M14035,18181.75a16,16,0,0,1-13.32-24.863,80.244,80.244,0,0,1-26.516-33.666l-6.437,2.131,1.921-16.746c-.017-.078-.031-.154-.047-.232H13975a16,16,0,0,1,0-32h15.6a79.815,79.815,0,0,1,19.8-38.467l-4.654-5.3,15.829-4.672c.035-.027.069-.053.1-.078A16,16,0,0,1,14035,18003h68a16,16,0,0,1,13.321,24.865,80.274,80.274,0,0,1,26.377,33.34l5.919-2.189-1.337,16.791c.04.189.079.379.117.57h15.6a16,16,0,1,1,0,32h-15.6a79.752,79.752,0,0,1-19.317,37.941l4.823,5.488-16.158,4.77c-.141.105-.282.209-.423.313a16,16,0,0,1-13.321,24.865Zm-1.424-31.937q.7-.062,1.424-.062h68q.721,0,1.423.063a67.729,67.729,0,0,0,30.159-41.439H14095a16,16,0,1,1,0-32h39.581a67.754,67.754,0,0,0-30.161-41.439q-.7.062-1.421.063h-68q-.719,0-1.422-.062a67.752,67.752,0,0,0-30.16,41.439H14043a16,16,0,0,1,0,32h-39.585A67.731,67.731,0,0,0,14033.574,18149.813Z" transform="translate(-12895.699 -10586.375)" fill="url(#linear-gradient)"/>
+      <text id="テスト-2" data-name="テスト" transform="translate(1173.3 7439.625)" fill="#fff" font-size="16" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="-24" y="0">テスト</tspan></text>
+      <text id="実装-2" data-name="実装" transform="translate(1113.3 7513)" fill="#fff" font-size="16" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="-16" y="0">実装</tspan></text>
+      <text id="プラン-2" data-name="プラン" transform="translate(1172.631 7586.375)" fill="#fff" font-size="16" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="-24" y="0">プラン</tspan></text>
+      <text id="リリース-2" data-name="リリース" transform="translate(1233.3 7513)" fill="#fff" font-size="16" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="-31.6" y="0">リリース</tspan></text>
+    </g>
+    <g id="Group_3945" data-name="Group 3945" transform="translate(246.002)">
+      <path id="Union_87-2" data-name="Union 87" d="M14185,18035h-222a4,4,0,0,1-4-4V18007a4,4,0,0,1,4-4h222v-4l20,20-20,20Z" transform="translate(-12927 -10393.375)" fill="#003c71"/>
+      <text id="機能B" transform="translate(1154.999 7632.377)" fill="#fff" font-size="16" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="-21.448" y="0">機能B</tspan></text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+name: Runsystem JP
+type: theme
+base theme: false
+description: 'Runsystem JP website theme version 1.0'
+package: Core
+core_version_requirement: ^10 || ^11
+version: '1.0'
+project: 'runsystem'
+libraries:
+  - runsystem/global-styling # Library for all global. These will be loaded on every pages.
+regions:
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  header: 'Header'
+  breadcrumb: 'Breadcrumb'
+  content: Content
+  content_home: 'Homepage Content'
+  footer: 'Footer'
+  hidden_blocks: 'Hidden Blocks'

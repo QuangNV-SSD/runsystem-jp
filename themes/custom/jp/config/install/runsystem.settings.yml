@@ -1,0 +1,11 @@
+# Layout
+container_width: 1200
+header_width: 'header_width_contained'
+main_width: 'main_width_contained'
+footer_width: 'footer_width_contained'
+
+# Social icons
+all_icons_show: 1
+facebook_url: ''
+linkedin_url: ''
+tiktok_url: ''
