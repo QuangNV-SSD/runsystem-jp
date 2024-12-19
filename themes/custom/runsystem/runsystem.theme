@@ -1,0 +1,45 @@
+<?php
+/**
+ * Theme overrides and preprocess functions.
+ */
+
+use Drupal\file\Entity\File;
+/**
+ * Sanitise input urls.
+ */
+function santise_val_url($url) {
+	if ($url != '') {
+		// Sanitise (remove all illegal characters) from url.
+		$url = filter_var($url, FILTER_SANITIZE_URL);
+		// Validate url.
+		if (filter_var($url, FILTER_VALIDATE_URL) === false) {
+      $url = '#';
+		}
+	}
+
+  return $url;
+}
+
+//function runsystem_theme_suggestions_block_alter(array &$suggestions, $variables)
+//{
+//  kint($suggestions);
+//}
+
+function runsystem_preprocess_html(&$variables)
+{
+  $variables['base_path'] = base_path();
+  // Layout
+  $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+  $variables['js_code'] = theme_get_setting('js_code', 'runsystem');
+}
+
+//function runsystem_preprocess_page(array &$variables)
+//{
+//
+//}
+
+function runsystem_preprocess_block(&$variables)
+{
+  $variables['base_path'] = base_path();
+  $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+}

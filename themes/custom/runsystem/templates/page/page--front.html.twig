@@ -32,7 +32,11 @@
  */
 #}
 
+{% include '@runsystem/parts/menu_mobile.html.twig' %}
+{% include '@runsystem/parts/header.html.twig' %}
+
 <div class="tg_content">
-  {{ page.content }}
+  {{ page.content_home }}
 </div>
 
+{% include '@runsystem/parts/footer.html.twig' %}
