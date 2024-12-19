@@ -1,0 +1,14 @@
+<div class="tg_footer_wrap_bottom">
+  <div class="tg_footer_wrap_bottom_left">
+    <div class="tg_footer_wrap_bottom_left_cpright">
+      <p>
+        {{ 'Copyright'|t }} &copy; {{ "now"|date("Y") }} {{ 'GMO-Z.com RUNSYSTEM. All Rights Reserved.'|t }}
+      </p>
+    </div>
+  </div>
+  <div class="tg_footer_wrap_bottom_right">
+    {% if all_icons_show %}
+      {% include '@runsystem/parts/social.html.twig' %}
+    {% endif %}
+  </div>
+</div>
