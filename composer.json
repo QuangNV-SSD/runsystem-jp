@@ -21,6 +21,7 @@
         "drupal/core-project-message": "^11.0",
         "drupal/core-recommended": "^11.0",
         "drupal/core-vendor-hardening": "^11.0",
+        "drupal/devel": "^5.3",
         "drupal/webform": "6.3.x-dev"
     },
     "conflict": {

@@ -1,0 +1,53 @@
+
+{% include '@runsystem/parts/menu_mobile.html.twig' %}
+{% include '@runsystem/parts/header.html.twig' %}
+
+<div class="tg_content">
+  <div class="tg_content_download">
+    <div class="tg_container">
+      <div class="tg_contact_form">
+        <h5 class="title-download">Download</h5>
+        <div class="tg_content_intro_title">
+          <h2 class="tg_text_form">資料ダウンロード</h2>
+          <b class="tg_content_intro_super_title">Download</b>
+        </div>
+        <p>下記のフォームに必要事項を入力いただき、送信してください。</p>
+        <p>資料のダウンロードURLを送付いたします。</p>
+      </div>
+      <div class="tg_wrap_content_download">
+        <div class="tg_wrap_left">
+          <div class="tg_wrap_text_left">
+            <h5>オフショア開発検討中の方必見！</h5>
+            <h3>オフショア向き/不向きの見極めガイドライン</h3>
+            <figure>
+              <img src="{{ active_theme_path() }}/images/download_img1_12112024.jpg" />
+            </figure>
+          </div>
+          <div class="tg_wrap_information">
+            <h3>資料概要</h3>
+            <p>
+              オフショア開発を検討するにあたって、「この案件はオフショアで開発できるのか？」「必要なスキルを持った人材がオフショアで調達できるのか？」など不安な点も多いはず。当資料では、そんなオフショア開発検討時の不安を払拭するような情報を掲載しております。
+            </p>
+            <div class="tg_text_information">
+              <p>1. オフショア開発のメリット&デメリット</p>
+              <p>2. オフショア向き/不向きの見極め4つのポイント</p>
+              <ul>
+                <li>- プロジェクトスコープ</li>
+                <li>- 開発チームの管理体制</li>
+                <li>- コミュニケーション頻度</li>
+                <li>- 中長期的計画</li>
+              </ul>
+              <p>3. オフショア拠点国比較</p>
+              <p>4. ベトナムの特徴</p>
+            </div>
+          </div>
+        </div>
+        <div class="tg_wrap_right">
+          {{ page.content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include '@runsystem/parts/footer.html.twig' %}
