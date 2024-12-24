@@ -50,7 +50,7 @@ function runsystem_preprocess_block(&$variables)
   $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
 }
 
-function runsystem_form_alter(&$form, &$form_state, $form_id)
-{
-  kint($form);
-}
+//function runsystem_form_alter(&$form, &$form_state, $form_id)
+//{
+//  kint($form);
+//}

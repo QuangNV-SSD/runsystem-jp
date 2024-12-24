@@ -10,11 +10,11 @@
               <img src="{{ active_theme_path() }}/images/Logo_gmo_footer.svg" alt="" />
             </div>
             <div class="tg_footer_wrap_top_left_menu">
-              <ul class="tg_menu_scroll">
-                <li rel="1"><a href="#">ランシステムの強み</a></li>
-                <li rel="2"><a href="#">開発可能な言語</a></li>
-                <li rel="3"><a href="#">開発実績</a></li>
-                <li rel="4"><a href="#">品質について</a></li>
+              <ul{{ create_attribute().addClass(is_front ? 'tg_menu_scroll' : '') }}>
+                <li rel="1"><a href="{{ path('<front>') }}#home-solution">ランシステムの強み</a></li>
+                <li rel="2"><a href="{{ path('<front>') }}#home-skill">開発可能な言語</a></li>
+                <li rel="3"><a href="{{ path('<front>') }}#home-work">開発実績</a></li>
+                <li rel="4"><a href="{{ path('<front>') }}#home-quality">品質について</a></li>
               </ul>
             </div>
           </div>
