@@ -48,9 +48,11 @@ function runsystem_preprocess_block(&$variables)
 {
   $variables['base_path'] = base_path();
   $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+  $variables['experience_year'] = date('Y') - 2005;
+  $variables['develop_number'] = theme_get_setting('developers', 'runsystem') ?? 600;
 }
 
-function runsystem_form_alter(&$form, &$form_state, $form_id)
-{
-  kint($form);
-}
+//function runsystem_form_alter(&$form, &$form_state, $form_id)
+//{
+//  kint($form);
+//}

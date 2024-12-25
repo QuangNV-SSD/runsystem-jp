@@ -1,3 +1,11 @@
+{%
+  set menu_classes = [
+  'menu',
+  is_front ? 'tg_menu_scroll' : '',
+]
+%}
+
+{% set menu_attributes = create_attribute() %}
 
 <div id="menu_mobile_full">
   <div class="header_mobif">
@@ -11,18 +19,18 @@
   <div class="mobile_absolute">
     <nav class="mobile-menu">
       <div class="menu-menu-chinh-container">
-        <ul class="menu tg_menu_scroll">
+        <ul{{ menu_attributes.addClass(menu_classes) }}>
           <li class="diem1" rel="1">
-            <a href="#" class="tt_no_event">ランシステムの強み</a>
+            <a href="{{ path('<front>') }}#home-solution" class="tt_no_event">ランシステムの強み</a>
           </li>
           <li class="diem2" rel="2">
-            <a href="#" class="tt_no_event">開発可能な言語</a>
+            <a href="{{ path('<front>') }}#home-skill" class="tt_no_event">開発可能な言語</a>
           </li>
           <li class="diem3" rel="3">
-            <a href="#" class="tt_no_event">開発実績</a>
+            <a href="{{ path('<front>') }}#home-work" class="tt_no_event">開発実績</a>
           </li>
           <li class="diem4" rel="4">
-            <a href="#" class="tt_no_event">品質について</a>
+            <a href="{{ path('<front>') }}#home-quality" class="tt_no_event">品質について</a>
           </li>
         </ul>
       </div>

@@ -1,3 +1,12 @@
+{%
+  set menu_classes = [
+    'nav_primary',
+    is_front ? 'tg_menu_scroll' : '',
+  ]
+%}
+
+{% set menu_attributes = create_attribute() %}
+
 <header>
   <div class="tg_header tg_home_page">
     <div class="tg_header_wrap_active_menu"></div>
@@ -10,18 +19,18 @@
         </div>
         <div class="tg_header_wrap_right">
           <div class="tg_header_wrap_right_menu">
-            <ul class="nav_primary tg_menu_scroll">
+            <ul{{ menu_attributes.addClass(menu_classes) }}>
               <li class="diem1" rel="1">
-                <a href="#">ランシステムの強み</a>
+                <a href="{{ path('<front>') }}#home-solution">ランシステムの強み</a>
               </li>
               <li class="diem2" rel="2">
-                <a href="#">開発可能な言語</a>
+                <a href="{{ path('<front>') }}#home-skill">開発可能な言語</a>
               </li>
               <li class="diem3" rel="3">
-                <a href="#">開発実績</a>
+                <a href="{{ path('<front>') }}#home-work">開発実績</a>
               </li>
               <li class="diem4" rel="4">
-                <a href="#">品質について</a>
+                <a href="{{ path('<front>') }}#home-quality">品質について</a>
               </li>
             </ul>
           </div>
