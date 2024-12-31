@@ -1162,8 +1162,9 @@ body {
   font-weight: 700;
   font-style: normal;
   display: table;
-  margin: 0 auto 4rem auto;
+  margin: 0 auto 5rem auto;
   position: relative;
+  top: -1rem;
 }
 @media (max-width: 1024px) {
   .tg_content_contact_area .tg_container .tg_contact_form .tg_content_intro_title h2.tg_text_form {
@@ -1583,6 +1584,7 @@ body {
   justify-content: center;
   margin: 0 0 6.1rem 0;
   position: relative;
+  top: -1rem;
 }
 @media (max-width: 1024px) {
   .tg_content_download .tg_container .tg_contact_form .tg_content_intro_title h2.tg_text_form {
@@ -1592,6 +1594,7 @@ body {
     font-weight: 700;
     font-style: normal;
     margin: 0 0 2rem 0;
+    top: 0;
   }
 }
 .tg_content_download .tg_container .tg_contact_form .tg_content_intro_title .tg_content_intro_super_title {
@@ -2269,7 +2272,7 @@ body {
   position: absolute;
   font-family: "Poppins", sans-serif;
   pointer-events: none;
-  letter-spacing: -1rem;
+  letter-spacing: -0.5rem;
 }
 @media (max-width: 1024px) {
   .tg_content_intro_super_title {
@@ -2821,6 +2824,7 @@ body {
 }
 .tg_content_intro_method .tg_content_intro_title h2 {
   color: #231815;
+  top: -1.5rem;
 }
 .tg_content_intro_method_wrap_bg {
   background: #eef6ff;
@@ -3030,6 +3034,7 @@ body {
 }
 .tg_content_intro_team .tg_content_intro_title h2 {
   color: #231815;
+  top: -1.5rem;
 }
 .tg_content_intro_team .tg_content_intro_super_title {
   top: 50%;
@@ -3216,7 +3221,7 @@ body {
   padding: 0.5rem;
   max-width: 16rem;
   width: 100%;
-  margin: 0 auto 3.2rem auto;
+  margin: 0 auto 2.5rem auto;
   position: relative;
   z-index: 1;
 }
@@ -3352,7 +3357,7 @@ body {
   position: relative;
 }
 .tg_content_works .tg_content_intro_title b {
-  top: 13rem;
+  top: 12rem;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -3548,7 +3553,7 @@ body {
   background: #eef6ff;
 }
 .tg_content_quality .tg_content_intro_title b {
-  top: 15rem;
+  top: 12rem;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -3759,7 +3764,7 @@ body {
   position: relative;
 }
 .tg_content_question_wrap_list {
-  margin: 9rem 0 0 0;
+  margin: 8rem 0 0 0;
   display: flex;
   gap: 4rem;
   flex-direction: column;

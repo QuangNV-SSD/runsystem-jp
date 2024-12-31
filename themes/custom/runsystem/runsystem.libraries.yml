@@ -8,6 +8,7 @@ global-styling:
       css/animate.css: {}
       css/swiper-bundle.min.css: {}
       css/slick.css: {}
+      css/quyen.css: {}
   js:
     js/swiper-bundle.min.js: {}
     js/slick.js: {}
