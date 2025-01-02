@@ -1,0 +1,36 @@
+/*fix bug giao dien no2*/
+.tg_content_intro_title .highlight {
+    position: relative;
+    color: #f4ec09; 
+}
+
+.tg_content_intro_title .dots {
+    position: absolute;
+    top: 0px; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 46px; 
+}
+
+.tg_content_intro_title .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #f4ec09; 
+    border-radius: 50%;
+}
+
+/* fix bug giao dien no8*/
+.tg_content_intro_team .tg_content_intro_title strong{
+    top: -1.5rem;
+}
+
+.tg_content_intro_method .tg_content_intro_title strong{
+    top: -1rem;
+}
+
+.tg_content_question .tg_content_intro_title h2{
+    top: 1rem;
+}
+
+
