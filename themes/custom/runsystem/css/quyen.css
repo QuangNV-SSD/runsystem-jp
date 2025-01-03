@@ -1,22 +1,41 @@
 /*fix bug giao dien no2*/
 .tg_content_intro_title .highlight {
     position: relative;
-    color: #f4ec09; 
+    color: #f4ec09;
 }
 
 .tg_content_intro_title .dots {
     position: absolute;
-    top: 0px; 
+    top: 0px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 46px; 
+    gap: 46px;
 }
-
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tg_content_intro_title .dots {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 28px;
+  }
+}
+@media (max-width: 768px) {
+  .tg_content_intro_title .dots {
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 22px;
+  }
+}
 .tg_content_intro_title .dot {
     width: 8px;
     height: 8px;
-    background-color: #f4ec09; 
+    background-color: #f4ec09;
     border-radius: 50%;
 }
 
