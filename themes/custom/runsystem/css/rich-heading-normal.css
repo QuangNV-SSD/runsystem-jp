@@ -1,0 +1,97 @@
+:root:root:root:root:root:root [data-designpart=rich-heading-normal] {
+  margin: 10px 0 0
+}
+
+:root:root:root:root:root:root [data-designpart=rich-heading-normal] :is(h1,h2,h3,h4,h5,h6) {
+  /*font-family: var(--fo-heading-font-family);*/
+  font-weight: 700;
+  line-height: var(--fo-heading-line-height);
+  letter-spacing: var(--fo-heading-letter-spacing);
+  color: var(--fo-heading-main-color);
+  border: none;
+  position: initial;
+  padding: 0;
+  margin: 0
+}
+
+@media screen and (max-width: 769px) {
+  :root:root:root:root:root:root [data-designpart=rich-heading-normal] :is(h1,h2,h3,h4,h5,h6) {
+    overflow-wrap: break-word
+  }
+}
+
+:root:root:root:root:root:root [data-designpart=rich-heading-normal] :is(h1,h2,h3,h4,h5,h6) :is(.strong,strong) {
+  font-weight: 400
+}
+
+:root:root:root:root:root:root [data-designpart=rich-heading-normal] h1 {
+  font-size: var(--fo-h1-font-size-pc);
+  margin-bottom: max(calc((32px * var(--fo-spacing-coef)) - 20px), 0px)
+}
+
+@media screen and (max-width: 769px) {
+  :root:root:root:root:root:root [data-designpart=rich-heading-normal] h1 {
+    font-size: var(--fo-h1-font-size-sp);
+    margin-bottom: max(calc((32px * var(--fo-spacing-coef)) * .75), 0px)
+  }
+}
+
+:root:root:root:root:root:root [data-designpart=rich-heading-normal] h2 {
+  font-size: var(--fo-h2-font-size-pc);
+  margin-bottom: max(calc((32px * var(--fo-spacing-coef)) - 20px), 0px)
+}
+
+@media screen and (max-width: 769px) {
+  :root:root:root:root:root:root [data-designpart=rich-heading-normal] h2 {
+    font-size: var(--fo-h2-font-size-sp);
+    margin-bottom: max(calc((32px * var(--fo-spacing-coef)) * .75), 0px)
+  }
+}
+
+:root:root:root:root:root:root [data-designpart=rich-heading-normal] h3 {
+  font-size: var(--fo-h3-font-size-pc);
+  margin-bottom: max(calc((32px * var(--fo-spacing-coef)) - 20px), 0px)
+}
+
+@media screen and (max-width: 769px) {
+  :root:root:root:root:root:root [data-designpart=rich-heading-normal] h3 {
+    font-size: var(--fo-h3-font-size-sp);
+    margin-bottom: max(calc((32px * var(--fo-spacing-coef)) * .75), 0px)
+  }
+}
+
+:root:root:root:root:root:root [data-designpart=rich-heading-normal] h4 {
+  font-size: var(--fo-h4-font-size-pc);
+  margin-bottom: max(calc((24px * var(--fo-spacing-coef)) - 20px), 0px)
+}
+
+@media screen and (max-width: 769px) {
+  :root:root:root:root:root:root [data-designpart=rich-heading-normal] h4 {
+    font-size: var(--fo-h4-font-size-sp);
+    margin-bottom: max(calc((24px * var(--fo-spacing-coef)) * .75), 0px)
+  }
+}
+
+:root:root:root:root:root:root [data-designpart=rich-heading-normal] h5 {
+  font-size: var(--fo-h5-font-size-pc);
+  margin-bottom: max(calc((24px * var(--fo-spacing-coef)) - 20px), 0px)
+}
+
+@media screen and (max-width: 769px) {
+  :root:root:root:root:root:root [data-designpart=rich-heading-normal] h5 {
+    font-size: var(--fo-h5-font-size-sp);
+    margin-bottom: max(calc((24px * var(--fo-spacing-coef)) * .75), 0px)
+  }
+}
+
+:root:root:root:root:root:root [data-designpart=rich-heading-normal] h6 {
+  font-size: calc(var(--fo-h5-font-size-pc) - 2px);
+  margin-bottom: max(calc((24px * var(--fo-spacing-coef)) - 20px), 0px)
+}
+
+@media screen and (max-width: 769px) {
+  :root:root:root:root:root:root [data-designpart=rich-heading-normal] h6 {
+    font-size: calc(var(--fo-h5-font-size-sp) - 2px);
+    margin-bottom: max(calc((24px * var(--fo-spacing-coef)) * .75), 0px)
+  }
+}

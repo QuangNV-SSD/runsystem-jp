@@ -1,0 +1,1 @@
+:root:root:root:root:root:root [data-designpart=image-shadow]{padding-bottom:calc(12px * var(--fo-spacing-coef))}@media screen and (max-width:769px){:root:root:root:root:root:root [data-designpart=image-shadow]{padding-bottom:calc(12px * var(--fo-spacing-coef) * .75)}}:root:root:root:root:root:root [data-designpart=image-shadow] img{box-shadow:0 3px 8px var(--fo-shadow-color)}

@@ -17,7 +17,6 @@
 
 {% if title is not empty-%}
   <label{{ attributes }}>
-    <strong>{{ title }}</strong>
-    {% if required %} <span>必須</span> {% endif %}
+    {{ title }}
   </label>
 {%- endif %}

@@ -32,12 +32,21 @@
  */
 #}
 
-{% include '@runsystem/parts/menu_mobile.html.twig' %}
-{% include '@runsystem/parts/header.html.twig' %}
+{% include '@runsystem/parts/header_gmo.html.twig' %}
 
-<div class="tg_content">
-  {{ page.content }}
+<div id="__next" data-reactroot="">
+  <div class="clearfix theme-fo-base v2-0 no-navi no-breadcrumbs" id="fo-base">
+    {% include '@runsystem/parts/header.html.twig' %}
+
+    <div class="wrapper clearfix none">
+      <div class="contents">
+        {{ page.content }}
+
+        {% include '@runsystem/parts/footer.html.twig' %}
+      </div>
+    </div>
+  </div>
 </div>
 
-{% include '@runsystem/parts/footer.html.twig' %}
+{% include '@runsystem/parts/footer_gmo.html.twig' %}
 

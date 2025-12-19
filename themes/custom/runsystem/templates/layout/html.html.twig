@@ -26,15 +26,13 @@
 #}
 {%
   set body_classes = [
-    is_front ? 'tg_home tg_home_ovf' : '',
+    'home'
   ]
 %}
 
 <!DOCTYPE html>
 <html{{ html_attributes }}>
   <head>
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
     <head-placeholder token="{{ placeholder_token }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
     <css-placeholder token="{{ placeholder_token }}">
@@ -48,8 +46,7 @@
     />
   </head>
 
-  <body{{ attributes.addClass(body_classes) }}>
-    <div class="bg_opacity"></div>
+  <body{{ attributes.addClass(body_classes) }} id="page-custom-css-id" data-gmoheader="pc">
     {#
       Keyboard navigation/accessibility link to main content section in
       page.html.twig.

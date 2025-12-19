@@ -1,0 +1,231 @@
+@charset "UTF-8";
+[data-designpart="section-slide"]:not(:root:root:root:root) {
+  background-color: var(--fo-background-color1);
+  padding: calc(80px * var(--fo-spacing-coef) - 30px) 0 calc(80px * var(--fo-spacing-coef) - 40px);
+  opacity: 0;
+  animation: opacity 1 forwards;
+  animation-delay: 1s;
+}
+@media screen and (max-width: 769px) {
+  [data-designpart="section-slide"]:not(:root:root:root:root) {
+    padding: calc(80px * var(--fo-spacing-coef) * 0.75 - 30px) 0;
+  }
+}
+@keyframes opacity {
+  to {
+    opacity: 1;
+  }
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .slider-wrapper {
+  overflow: hidden;
+  position: relative;
+  margin-inline: -10px;
+  padding: 10px;
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .slider-wrapper .slider-track {
+  display: flex;
+  gap: calc(20px * var(--fo-spacing-coef));
+  transition: transform 0.5s ease;
+  width: 100%;
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .slider-wrapper .slider-track.no-transition {
+  transition: none !important;
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .slider-wrapper .slider-track [data-designpart="row-swiper"] {
+  visibility: hidden;
+  flex: 0 0 calc((100% - 20px * var(--fo-spacing-coef) * 2) / 3);
+  transition:
+    opacity 0.5s ease,
+    visibility 0s linear 0.5s;
+  padding: 10px 10px 0;
+}
+@media screen and (max-width: 769px) {
+  [data-designpart="section-slide"]:not(:root:root:root:root) .inner .slider-wrapper .slider-track [data-designpart="row-swiper"] {
+    display: flex;
+    flex: 0 0 100%;
+  }
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .slider-wrapper .slider-track [data-designpart="row-swiper"].visible {
+  visibility: visible;
+  transition-delay: 0s;
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .slider-wrapper .slider-track [data-designpart="row-swiper"] .col {
+  width: 100%;
+}
+@media screen and (max-width: 769px) {
+  [data-designpart="section-slide"]:not(:root:root:root:root) .inner .slider-wrapper .slider-track [data-designpart="row-swiper"] .col {
+    padding: 0 10px 10px;
+  }
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .btn-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-inline: auto;
+  width: calc(100% - 100px);
+  gap: 10px;
+}
+@media screen and (max-width: 769px) {
+  [data-designpart="section-slide"]:not(:root:root:root:root) .inner .btn-wrapper {
+    width: 100%;
+    padding: 0;
+  }
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .btn-wrapper .slider-button-next,
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .btn-wrapper .slider-button-prev {
+  border: none;
+  font-size: 0;
+  background-color: transparent;
+  cursor: pointer;
+  color: #919191;
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .btn-wrapper .slider-button-next::before,
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .btn-wrapper .slider-button-prev::before {
+  content: "\f104";
+  font-family: FontAwesome;
+  font-size: 20px;
+  color: inherit;
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .btn-wrapper .slider-button-next {
+  order: 3;
+  right: 0;
+  left: initial;
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .btn-wrapper .slider-button-next::before {
+  content: "\f105";
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .btn-wrapper .slider-pagination {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .btn-wrapper .slider-pagination .slider-dot {
+  width: 11px;
+  height: 11px;
+  margin: 0;
+  background-color: #eee;
+  border-radius: 50%;
+  cursor: pointer;
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .btn-wrapper .slider-pagination .slider-dot.active {
+  background-color: #919191;
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .row[data-designpart="row-swiper-btn-row"] {
+  position: relative;
+}
+@media screen and (max-width: 769px) {
+  [data-designpart="section-slide"]:not(:root:root:root:root) .inner .row[data-designpart="row-swiper-btn-row"] {
+    margin-top: 10px;
+  }
+}
+[data-designpart="section-slide"]:not(:root:root:root:root) .inner .row[data-designpart="row-swiper-btn-row"] .col {
+  padding: 0;
+}
+[data-designpart="section-slide"]:not(:root:root:root:root)
+  .inner
+  .row[data-designpart="row-swiper-btn-row"]
+  .col
+  .component.button[data-designpart="row-stop-btn"] {
+  margin: 0;
+}
+[data-designpart="section-slide"]:not(:root:root:root:root)
+  .inner
+  .row[data-designpart="row-swiper-btn-row"]
+  .col
+  .component.button[data-designpart="row-stop-btn"]
+  .button-cont
+  a {
+  display: block;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: -7px;
+  left: 10px;
+  opacity: 0.8;
+  z-index: 1;
+  overflow: hidden;
+  cursor: pointer;
+  background: 0 0;
+  font-size: 0;
+  letter-spacing: 0;
+  line-height: 1;
+  border: 0;
+  padding: 0;
+}
+@media screen and (max-width: 769px) {
+  [data-designpart="section-slide"]:not(:root:root:root:root)
+    .inner
+    .row[data-designpart="row-swiper-btn-row"]
+    .col
+    .component.button[data-designpart="row-stop-btn"]
+    .button-cont
+    a {
+    position: relative;
+  }
+}
+[data-designpart="section-slide"]:not(:root:root:root:root)
+  .inner
+  .row[data-designpart="row-swiper-btn-row"]
+  .col
+  .component.button[data-designpart="row-stop-btn"]
+  .button-cont
+  a::before {
+  content: "\f04c";
+  display: inline-block;
+  font-family: FontAwesome;
+  font-size: 20px;
+  font-weight: 400;
+  color: #919191;
+}
+[data-designpart="section-slide"]:not(:root:root:root:root)
+  .inner
+  .row[data-designpart="row-swiper-btn-row"]
+  .col
+  .component.button[data-designpart="row-stop-btn"]
+  .button-cont
+  a.play::before {
+  content: "\f04b";
+}
+.frame-root .frame-content [data-designpart="section-slide"]:not(:root:root:root:root:root) .inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+.frame-root .frame-content [data-designpart="section-slide"]:not(:root:root:root:root:root) .inner .row {
+  width: 100%;
+}
+.frame-root .frame-content [data-designpart="section-slide"]:not(:root:root:root:root:root) .inner .row[data-designpart="row-swiper"] {
+  width: 50%;
+  margin-top: 50px;
+}
+.frame-root .frame-content [data-designpart="section-slide"]:not(:root:root:root:root:root) .inner .row[data-designpart="row-swiper"]::before {
+  content: "コンテンツを増やしたい場合は行を複製して下さい。右、もしくは左下に追加されます。\a行内は1カラムでの使用をおススメします。";
+  font-size: 14px;
+  background: #0987d4;
+  color: #fff;
+  position: absolute;
+  top: -50px;
+  right: 0;
+  padding: 0 5px;
+  z-index: 1;
+  white-space: pre;
+}
+.frame-root .frame-content [data-designpart="section-slide"]:not(:root:root:root:root:root) .inner .row[data-designpart="row-swiper-btn-row"] {
+  margin-top: 20px;
+}
+.frame-root
+  .frame-content
+  [data-designpart="section-slide"]:not(:root:root:root:root:root)
+  .inner
+  .row[data-designpart="row-swiper-btn-row"]::before {
+  content: "再生・停止ボタンを表示する場合はリンク設定より「このページの一番上に遷移」に設定して下さい。";
+  font-size: 14px;
+  background: #0987d4;
+  color: #fff;
+  position: absolute;
+  top: -30px;
+  left: 0;
+  padding: 0 5px;
+  z-index: 1;
+}

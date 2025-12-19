@@ -1,0 +1,79 @@
+:root:root:root:root:root:root [data-designpart="list-border"] {
+  color: var(--fo-text-main-color);
+}
+:root:root:root:root:root:root [data-designpart="list-border"] ul {
+  color: inherit;
+}
+:root:root:root:root:root:root [data-designpart="list-border"] ul li {
+  font-family: var(--fo-text-font-family);
+  font-size: var(--fo-text-font-size-pc);
+  letter-spacing: var(--fo-text-letter-spacing);
+  line-height: var(--fo-text-line-height);
+  color: inherit;
+  position: relative;
+  margin: 0;
+  padding: 5px 10px;
+  overflow-wrap: anywhere;
+}
+@media screen and (max-width: 769px) {
+  :root:root:root:root:root:root [data-designpart="list-border"] ul li {
+    font-size: calc(var(--fo-text-font-size-sp) - 2px);
+  }
+}
+:root:root:root:root:root:root [data-designpart="list-border"] ul li::before {
+  content: "|";
+  line-height: 1;
+  color: inherit;
+  position: absolute;
+  top: 50%;
+  left: -2px;
+  transform: translateY(-50%);
+}
+:root:root:root:root:root:root [data-designpart="list-border"] ul li a {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+:root:root:root:root:root:root [data-designpart="list-border"] ul li a:hover {
+  background: 0 0;
+  opacity: 0.4;
+  text-decoration: none;
+  font-weight: none;
+  color: inherit;
+}
+@media screen and (min-width: 770px) {
+  :root:root:root:root:root:root [data-designpart="list-border"].horizontal ul li:first-child {
+    padding-left: 0;
+  }
+}
+@media screen and (min-width: 770px) {
+  :root:root:root:root:root:root [data-designpart="list-border"].horizontal ul li:first-child::before {
+    content: none;
+  }
+}
+@media screen and (min-width: 770px) {
+  :root:root:root:root:root:root [data-designpart="list-border"].horizontal ul li:last-child {
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 769px) {
+  :root:root:root:root:root:root [data-designpart="list-border"].horizontal ul li:last-child::after {
+    content: "|";
+    line-height: 1;
+    color: inherit;
+    position: absolute;
+    top: 50%;
+    right: -2px;
+    transform: translateY(-50%);
+  }
+}
+:root:root:root:root:root:root [data-designpart="list-border"].vertical ul li {
+  width: fit-content;
+}
+:root:root:root:root:root:root [data-designpart="list-border"].vertical ul li a {
+  display: inline-block;
+}

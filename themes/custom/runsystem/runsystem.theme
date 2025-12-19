@@ -20,15 +20,66 @@ function santise_val_url($url) {
   return $url;
 }
 
-//function runsystem_theme_suggestions_page_alter(array &$suggestions, $variables)
-//{
-//  kint($suggestions);
-//}
+function runsystem_page_attachments_alter(array &$attachments)
+{
+  if (!empty($attachments['#attached']['html_head'])) {
+    foreach ($attachments['#attached']['html_head'] as $key => $attachment) {
+      if (!empty($attachment[1]) && $attachment[1] == 'system_meta_generator') {
+        unset($attachments['#attached']['html_head'][$key]);
+      }
+    }
+  }
+}
+
+function runsystem_theme_suggestions_page_alter(&$suggestions, $variables)
+{
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if (!empty($node)) {
+    $suggestions[] = 'page__node__'. $node->getType();
+
+    $url_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'. $node->id());
+
+    if ($node->getType() == 'page') {
+      if (str_contains($url_alias, '/strength')) {
+        $suggestions[] = 'page__strength';
+      }
+
+      if (str_contains($url_alias, '/service')) {
+        $suggestions[] = 'page__service';
+      }
+
+      if (str_contains($url_alias, '/about')) {
+        $suggestions[] = 'page__about';
+      }
+
+      if (str_contains($url_alias, '/privacy')) {
+        $suggestions[] = 'page__privacy';
+      }
+
+      if (str_contains($url_alias, '/recruit')) {
+        $suggestions[] = 'page__recruit';
+      }
+
+      if (str_contains($url_alias, '/news')) {
+        $suggestions[] = 'page__news';
+      }
+    }
+  }
+}
 
 function runsystem_theme_suggestions_container_alter(&$suggestions, array $variables)
 {
   if (!empty($variables['element']['#webform_key']) && $variables['element']['#webform_key'] == 'flexbox_01') {
     $suggestions[] = 'container__flexbox_01';
+  }
+
+  if (!empty($variables['element']['#webform_key']) && $variables['element']['#webform_key'] == 'flexbox_02') {
+    $suggestions[] = 'container__flexbox_02';
+  }
+
+  if (!empty($variables['element']['#webform_key']) && $variables['element']['#webform_key'] == 'recruit_flexbox_01') {
+    $suggestions[] = 'container__recruit_flexbox_01';
   }
 
   if (!empty($variables['element']['#webform_key']) && $variables['element']['#webform_key'] == 'download_box_01') {
@@ -42,6 +93,12 @@ function runsystem_preprocess_html(&$variables)
   // Layout
   $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
   $variables['js_code'] = theme_get_setting('js_code', 'runsystem');
+}
+
+function runsystem_preprocess_page(&$variables)
+{
+  $variables['base_path'] = base_path();
+  $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
 }
 
 function runsystem_preprocess_block(&$variables)

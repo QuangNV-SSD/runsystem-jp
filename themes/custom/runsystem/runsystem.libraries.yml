@@ -4,14 +4,23 @@ global-styling:
   css:
     theme:
       css/style.css: {}
+      css/fo-base.css: {}
       css/font-awesome.min.css: {}
-      css/animate.css: {}
-      css/swiper-bundle.min.css: {}
-      css/slick.css: {}
-      css/quyen.css: {}
+      css/style_2.css: {weight: 3}
+      css/global.css: {}
+      css/c25013139624.css: {}
+      css/rich-heading-normal.css: {}
+      css/button-type1-arrow.css: {}
+      css/image-shadow.css: {}
+      css/border-sub.css: {}
+      css/list-border.css: {}
+      css/button-type1-contact.css: {}
+      css/rich-text-normal.css: {}
+      css/8f1a6723a36df54d.css: {}
+      css/css2.css: {}
+      css/section-slide.css: {}
   js:
-    js/swiper-bundle.min.js: {}
-    js/slick.js: {}
+    js/main-f7336f9dc76502ff.js: {}
     js/custom.js: {}
 
   dependencies:
